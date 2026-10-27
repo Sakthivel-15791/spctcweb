@@ -24,7 +24,9 @@ function updateCourses() {
 
   courseResult.textContent = visibleCount === courseCards.length
     ? `Showing all ${visibleCount} courses`
-    : `Showing ${visibleCount} of ${courseCards.length} courses`;
+    : activeFilter === "civil" && !searchTerm
+      ? `Showing ${visibleCount} civil engineering and construction courses`
+      : `Showing ${visibleCount} of ${courseCards.length} courses`;
   noCourses.classList.toggle("d-none", visibleCount !== 0);
 }
 
